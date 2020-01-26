@@ -91,6 +91,12 @@
 		<Unit filename="/Volumes/Projects/OpenGL-Learning/main.cpp">
 			<Option target="OpenGL_Learning"/>
 		</Unit>
+		<Unit filename="/Volumes/Projects/OpenGL-Learning/src/Shader.cpp">
+			<Option target="OpenGL_Learning"/>
+		</Unit>
+		<Unit filename="/Volumes/Projects/OpenGL-Learning/src/Shader.h">
+			<Option target="OpenGL_Learning"/>
+		</Unit>
 		<Unit filename="/Volumes/Projects/OpenGL-Learning/src/glad.c">
 			<Option target="OpenGL_Learning"/>
 		</Unit>

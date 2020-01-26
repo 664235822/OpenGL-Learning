@@ -2,6 +2,7 @@
 #include <glfw3.h>
 #include <iostream>
 #include "math.h"
+#include "src/Shader.h"
 
 float vertices[] = {
         0.5f, 0.5f, 0.0f, 1.0f, 0, 0,
@@ -14,23 +15,6 @@ unsigned int indices[] = {
         0, 1, 3,
         1, 2, 3
 };
-
-
-const char *vertexShaderSource = "#version 330 core \n"
-                                 "layout (location = 0) in vec3 aPos; \n"
-                                 "layout (location = 1) in vec3 aColor; \n"
-                                 "out vec4 vertexColor;\n"
-                                 "void main(){\n"
-                                 "gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-                                 "vertexColor = vec4(aColor.x, aColor.y, aColor.z, 1.0);\n"
-                                 "}";
-
-const char *fragmentShaderSource = "#version 330 core\n"
-                                   "in vec4 vertexColor;\n"
-                                   "uniform vec4 ourColor;\n"
-                                   "out vec4 FragColor;\n"
-                                   "void main(){\n"
-                                   "FragColor = vertexColor;}";
 
 void processInput(GLFWwindow *window);
 
@@ -86,24 +70,8 @@ int main(void) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-    //编译vertexShader
-    unsigned int vertexShader;
-    vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-
-    //编译fragmentShader
-    unsigned int fragmentShader;
-    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-
-    //创建shader程序
-    unsigned int shaderProgram;
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
+    //创建着色器
+    Shader *myShader = new Shader("../shader/vertexShader.txt", "../shader/fragmentShader.txt");
 
     //顶点属性
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void *) 0);
@@ -124,11 +92,8 @@ int main(void) {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
         //使用着色器
-        float timeValue = glfwGetTime();
-        float greenValue = sin(timeValue) / 2.0f + 0.5f;
-        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-        glUseProgram(shaderProgram);
+        myShader->use();
+
         //glDrawArrays(GL_TRIANGLES,0,3);//三角形
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);//矩形
 

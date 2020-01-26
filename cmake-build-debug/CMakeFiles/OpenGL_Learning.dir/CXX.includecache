@@ -15,6 +15,26 @@ iostream
 -
 math.h
 /Volumes/Projects/OpenGL-Learning/math.h
+src/Shader.h
+/Volumes/Projects/OpenGL-Learning/src/Shader.h
+
+/Volumes/Projects/OpenGL-Learning/src/Shader.cpp
+Shader.h
+/Volumes/Projects/OpenGL-Learning/src/Shader.h
+iostream
+-
+fstream
+-
+sstream
+-
+glew.h
+-
+glfw3.h
+-
+
+/Volumes/Projects/OpenGL-Learning/src/Shader.h
+string
+-
 
 /usr/local/Cellar/glew/2.1.0_1/include/GL/glew.h
 stddef.h
