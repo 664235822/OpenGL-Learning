@@ -1,6 +1,7 @@
 #include <glew.h>
 #include <glfw3.h>
 #include <iostream>
+#include "math.h"
 
 float vertices[] = {
         0.5f, 0.5f, 0.0f,
@@ -17,13 +18,18 @@ unsigned int indices[] = {
 
 const char *vertexShaderSource = "#version 330 core \n"
                                  "layout (location = 0) in vec3 aPos; \n"
+                                 "out vec4 vertexColor;\n"
                                  "void main(){\n"
-                                 "gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);}";
+                                 "gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+                                 "vertexColor = vec4(1.0, 0, 0, 1.0);\n"
+                                 "}";
 
 const char *fragmentShaderSource = "#version 330 core\n"
+                                   "in vec4 vertexColor;\n"
+                                   "uniform vec4 ourColor;\n"
                                    "out vec4 FragColor;\n"
                                    "void main(){\n"
-                                   "FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);}";
+                                   "FragColor = ourColor;}";
 
 void processInput(GLFWwindow *window);
 
@@ -111,6 +117,11 @@ int main(void) {
         //画三角形、矩形
         glBindVertexArray(VAO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+
+        float timeValue = glfwGetTime();
+        float greenValue = sin(timeValue) / 2.0f + 0.5f;
+        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
         glUseProgram(shaderProgram);
         //glDrawArrays(GL_TRIANGLES,0,3);//三角形
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);//矩形

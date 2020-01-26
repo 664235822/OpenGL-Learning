@@ -13,6 +13,8 @@ glfw3.h
 -
 iostream
 -
+math.h
+/Volumes/Projects/OpenGL-Learning/math.h
 
 /usr/local/Cellar/glew/2.1.0_1/include/GL/glew.h
 stddef.h
