@@ -100,6 +100,9 @@
 		<Unit filename="/Volumes/Projects/OpenGL-Learning/src/glad.c">
 			<Option target="OpenGL_Learning"/>
 		</Unit>
+		<Unit filename="/Volumes/Projects/OpenGL-Learning/src/stb_image.h">
+			<Option target="OpenGL_Learning"/>
+		</Unit>
 		<Unit filename="/Volumes/Projects/OpenGL-Learning/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -8,6 +8,7 @@ CMakeFiles/OpenGL_Learning.dir/src/glad.c.o
 CMakeFiles/OpenGL_Learning.dir/main.cpp.o
  /Volumes/Projects/OpenGL-Learning/main.cpp
  /Volumes/Projects/OpenGL-Learning/src/Shader.h
+ /Volumes/Projects/OpenGL-Learning/src/stb_image.h
  /usr/local/Cellar/glew/2.1.0_1/include/GL/glew.h
  /usr/local/Cellar/glfw/3.3/include/GLFW/glfw3.h
 CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o

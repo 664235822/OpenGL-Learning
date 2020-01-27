@@ -1,19 +1,23 @@
 #include <glew.h>
 #include <glfw3.h>
-#include <iostream>
-#include "math.h"
+#include <cmath>
 #include "src/Shader.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+
+#include "src/stb_image.h"
+
 float vertices[] = {
-        0.5f, 0.5f, 0.0f, 1.0f, 0, 0,
-        0.5f, -0.5f, 0.0f, 0, 1.0f, 0,
-        -0.5f, -0.5f, 0.0f, 0, 0, 1.0f,
-        -0.5f, 0.5f, 0.0f, 0.3f, 0.5f, 0.7f
+        //位置3,颜色3,纹理2
+        0.5f, 0.5f, 0.0f, 1.0f, 0, 0, 1.0f, 1.0f,
+        0.5f, -0.5f, 0.0f, 0, 1.0f, 0, 1.0f, 0,
+        -0.5f, -0.5f, 0.0f, 0, 0, 1.0f, 0, 0,
+        -0.5f, 0.5f, 0.0f, 0.3f, 0.5f, 0.7f, 0, 1.0f
 };
 
 unsigned int indices[] = {
-        0, 1, 3,
-        1, 2, 3
+        0, 1, 2,
+        2, 3, 0
 };
 
 void processInput(GLFWwindow *window);
@@ -74,11 +78,29 @@ int main(void) {
     Shader *myShader = new Shader("../shader/vertexShader.txt", "../shader/fragmentShader.txt");
 
     //顶点属性
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void *) 0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) 0);
     glEnableVertexAttribArray(0);
     //颜色属性
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void *) (3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) (3 * sizeof(float)));
     glEnableVertexAttribArray(1);
+    //uv属性
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) (6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+
+    //应用纹理
+    unsigned int texBuffer;
+    glGenTextures(1, &texBuffer);
+    glBindTexture(GL_TEXTURE_2D, texBuffer);
+
+    int width, height, nrChannel;
+    unsigned char *data = stbi_load("../img/wood.jpeg", &width, &height, &nrChannel, 0);
+    if (data) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        printf("load image failed.");
+    }
+    stbi_image_free(data);
 
     //渲染循环
     while (!glfwWindowShouldClose(window)) {
@@ -87,7 +109,8 @@ int main(void) {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        //画三角形、矩形
+        //画矩形
+        glBindTexture(GL_TEXTURE_2D, texBuffer);
         glBindVertexArray(VAO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
