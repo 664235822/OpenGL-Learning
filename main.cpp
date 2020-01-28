@@ -7,6 +7,10 @@
 
 #include "src/stb_image.h"
 
+#include <glm.hpp>
+#include <gtc/matrix_transform.hpp>
+#include <gtc/type_ptr.hpp>
+
 float vertices[] = {
         //位置3,颜色3,纹理2
         0.5f, 0.5f, 0.0f, 1.0f, 0, 0, 1.0f, 1.0f,
@@ -22,7 +26,7 @@ unsigned int indices[] = {
 
 void processInput(GLFWwindow *window);
 
-int main(void) {
+int main() {
     //初始化GLFW
     if (!glfwInit()) {
         printf("Init GLFW Failed");
@@ -102,6 +106,12 @@ int main(void) {
     }
     stbi_image_free(data);
 
+    //位置变换
+    glm::mat4 trans;
+    trans = glm::translate(trans, glm::vec3(-0.3f, 0, 0));//移动
+    trans = glm::rotate(trans, glm::radians(45.0f), glm::vec3(0, 0, 1.0f));//旋转
+    trans = glm::scale(trans, glm::vec3(1.5f, 1.5f,1.0f));//缩放
+
     //渲染循环
     while (!glfwWindowShouldClose(window)) {
         processInput(window);
@@ -117,7 +127,7 @@ int main(void) {
         //使用着色器
         myShader->use();
 
-        //glDrawArrays(GL_TRIANGLES,0,3);//三角形
+        glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "transform"), 1, GL_FALSE, glm::value_ptr(trans));
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);//矩形
 
         glfwSwapBuffers(window);

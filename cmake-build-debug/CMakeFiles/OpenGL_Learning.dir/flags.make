@@ -7,11 +7,11 @@ C_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk
 
 C_DEFINES = 
 
-C_INCLUDES = -I/usr/local/Cellar/glew/2.1.0_1/include/GL -I/usr/local/Cellar/glfw/3.3/include/GLFW -I/usr/local/include/glad -I/usr/local/include/KHR 
+C_INCLUDES = -I/usr/local/Cellar/glew/2.1.0_1/include/GL -I/usr/local/Cellar/glfw/3.3/include/GLFW -I/usr/local/include/glad -I/usr/local/include/KHR -I/usr/local/Cellar/glm/glm 
 
 CXX_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/Cellar/glew/2.1.0_1/include/GL -I/usr/local/Cellar/glfw/3.3/include/GLFW -I/usr/local/include/glad -I/usr/local/include/KHR 
+CXX_INCLUDES = -I/usr/local/Cellar/glew/2.1.0_1/include/GL -I/usr/local/Cellar/glfw/3.3/include/GLFW -I/usr/local/include/glad -I/usr/local/include/KHR -I/usr/local/Cellar/glm/glm 
 

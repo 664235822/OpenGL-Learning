@@ -13,14 +13,14 @@ public:
     Shader(const char* vertexPath,const char* fragmentPath);
 
     void use();
+
+    unsigned int ID;//ShaderProgramID
 private:
     string vertexString;
     string fragmentString;
 
     const char* vertexSource;
     const char* fragmentSource;
-
-    unsigned int ID;//ShaderProgramID
 
     void checkCompileErrors(unsigned int ID,string type);
 };

@@ -15,6 +15,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/Cellar/glfw/3.3/include/GLFW"
   "/usr/local/include/glad"
   "/usr/local/include/KHR"
+  "/usr/local/Cellar/glm/glm"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Volumes/Projects/OpenGL-Learning/main.cpp" "/Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/main.cpp.o"
@@ -28,6 +29,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/Cellar/glfw/3.3/include/GLFW"
   "/usr/local/include/glad"
   "/usr/local/include/KHR"
+  "/usr/local/Cellar/glm/glm"
   )
 
 # Targets to which this target links.
