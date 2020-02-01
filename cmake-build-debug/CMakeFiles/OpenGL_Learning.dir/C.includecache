@@ -6,3 +6,23 @@
 
 #IncludeRegexTransform: 
 
+/Volumes/项目/OpenGL-Learning/src/glad.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+glad.h
+-
+windows.h
+-
+winapifamily.h
+-
+dlfcn.h
+-
+
+/usr/local/include/glad/glad.h
+KHR/khrplatform.h
+-
+

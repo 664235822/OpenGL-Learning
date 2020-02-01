@@ -44,10 +44,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Volumes/Projects/OpenGL-Learning
+CMAKE_SOURCE_DIR = /Volumes/项目/OpenGL-Learning
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Volumes/Projects/OpenGL-Learning/cmake-build-debug
+CMAKE_BINARY_DIR = /Volumes/项目/OpenGL-Learning/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ preinstall:
 CMakeFiles/OpenGL_Learning.dir/all:
 	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/depend
 	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target OpenGL_Learning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target OpenGL_Learning"
 .PHONY : CMakeFiles/OpenGL_Learning.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OpenGL_Learning.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OpenGL_Learning.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/OpenGL_Learning.dir/rule
 
 # Convenience name for target.

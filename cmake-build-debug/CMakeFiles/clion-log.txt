@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Volumes/Projects/OpenGL-Learning
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Volumes/项目/OpenGL-Learning
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Volumes/Projects/OpenGL-Learning/cmake-build-debug
+-- Build files have been written to: /Volumes/项目/OpenGL-Learning/cmake-build-debug

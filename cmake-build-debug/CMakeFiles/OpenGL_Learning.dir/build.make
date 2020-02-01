@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Volumes/Projects/OpenGL-Learning
+CMAKE_SOURCE_DIR = /Volumes/项目/OpenGL-Learning
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Volumes/Projects/OpenGL-Learning/cmake-build-debug
+CMAKE_BINARY_DIR = /Volumes/项目/OpenGL-Learning/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/OpenGL_Learning.dir/depend.make
@@ -59,42 +59,42 @@ include CMakeFiles/OpenGL_Learning.dir/flags.make
 
 CMakeFiles/OpenGL_Learning.dir/src/glad.c.o: CMakeFiles/OpenGL_Learning.dir/flags.make
 CMakeFiles/OpenGL_Learning.dir/src/glad.c.o: ../src/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/OpenGL_Learning.dir/src/glad.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OpenGL_Learning.dir/src/glad.c.o   -c /Volumes/Projects/OpenGL-Learning/src/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/OpenGL_Learning.dir/src/glad.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OpenGL_Learning.dir/src/glad.c.o   -c /Volumes/项目/OpenGL-Learning/src/glad.c
 
 CMakeFiles/OpenGL_Learning.dir/src/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OpenGL_Learning.dir/src/glad.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Volumes/Projects/OpenGL-Learning/src/glad.c > CMakeFiles/OpenGL_Learning.dir/src/glad.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Volumes/项目/OpenGL-Learning/src/glad.c > CMakeFiles/OpenGL_Learning.dir/src/glad.c.i
 
 CMakeFiles/OpenGL_Learning.dir/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OpenGL_Learning.dir/src/glad.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Volumes/Projects/OpenGL-Learning/src/glad.c -o CMakeFiles/OpenGL_Learning.dir/src/glad.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Volumes/项目/OpenGL-Learning/src/glad.c -o CMakeFiles/OpenGL_Learning.dir/src/glad.c.s
 
 CMakeFiles/OpenGL_Learning.dir/main.cpp.o: CMakeFiles/OpenGL_Learning.dir/flags.make
 CMakeFiles/OpenGL_Learning.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OpenGL_Learning.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGL_Learning.dir/main.cpp.o -c /Volumes/Projects/OpenGL-Learning/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OpenGL_Learning.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGL_Learning.dir/main.cpp.o -c /Volumes/项目/OpenGL-Learning/main.cpp
 
 CMakeFiles/OpenGL_Learning.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGL_Learning.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Projects/OpenGL-Learning/main.cpp > CMakeFiles/OpenGL_Learning.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/项目/OpenGL-Learning/main.cpp > CMakeFiles/OpenGL_Learning.dir/main.cpp.i
 
 CMakeFiles/OpenGL_Learning.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGL_Learning.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Projects/OpenGL-Learning/main.cpp -o CMakeFiles/OpenGL_Learning.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/项目/OpenGL-Learning/main.cpp -o CMakeFiles/OpenGL_Learning.dir/main.cpp.s
 
 CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o: CMakeFiles/OpenGL_Learning.dir/flags.make
 CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o: ../src/Shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o -c /Volumes/Projects/OpenGL-Learning/src/Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o -c /Volumes/项目/OpenGL-Learning/src/Shader.cpp
 
 CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Projects/OpenGL-Learning/src/Shader.cpp > CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/项目/OpenGL-Learning/src/Shader.cpp > CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.i
 
 CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Projects/OpenGL-Learning/src/Shader.cpp -o CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/项目/OpenGL-Learning/src/Shader.cpp -o CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.s
 
 # Object files for target OpenGL_Learning
 OpenGL_Learning_OBJECTS = \
@@ -112,7 +112,7 @@ OpenGL_Learning: CMakeFiles/OpenGL_Learning.dir/build.make
 OpenGL_Learning: /usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.dylib
 OpenGL_Learning: /usr/local/Cellar/glfw/3.3/lib/libglfw.3.dylib
 OpenGL_Learning: CMakeFiles/OpenGL_Learning.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable OpenGL_Learning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable OpenGL_Learning"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OpenGL_Learning.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -125,6 +125,6 @@ CMakeFiles/OpenGL_Learning.dir/clean:
 .PHONY : CMakeFiles/OpenGL_Learning.dir/clean
 
 CMakeFiles/OpenGL_Learning.dir/depend:
-	cd /Volumes/Projects/OpenGL-Learning/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Volumes/Projects/OpenGL-Learning /Volumes/Projects/OpenGL-Learning /Volumes/Projects/OpenGL-Learning/cmake-build-debug /Volumes/Projects/OpenGL-Learning/cmake-build-debug /Volumes/Projects/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Volumes/项目/OpenGL-Learning/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Volumes/项目/OpenGL-Learning /Volumes/项目/OpenGL-Learning /Volumes/项目/OpenGL-Learning/cmake-build-debug /Volumes/项目/OpenGL-Learning/cmake-build-debug /Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/OpenGL_Learning.dir/depend
 
