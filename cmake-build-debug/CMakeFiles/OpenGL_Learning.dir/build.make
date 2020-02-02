@@ -110,7 +110,7 @@ OpenGL_Learning: CMakeFiles/OpenGL_Learning.dir/main.cpp.o
 OpenGL_Learning: CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o
 OpenGL_Learning: CMakeFiles/OpenGL_Learning.dir/build.make
 OpenGL_Learning: /usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.dylib
-OpenGL_Learning: /usr/local/Cellar/glfw/3.3/lib/libglfw.3.dylib
+OpenGL_Learning: /usr/local/Cellar/glfw/3.3.1/lib/libglfw.3.dylib
 OpenGL_Learning: CMakeFiles/OpenGL_Learning.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable OpenGL_Learning"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OpenGL_Learning.dir/link.txt --verbose=$(VERBOSE)

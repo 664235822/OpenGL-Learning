@@ -108,9 +108,15 @@ int main() {
 
     //位置变换
     glm::mat4 trans;
-    trans = glm::translate(trans, glm::vec3(-0.3f, 0, 0));//移动
-    trans = glm::rotate(trans, glm::radians(45.0f), glm::vec3(0, 0, 1.0f));//旋转
-    trans = glm::scale(trans, glm::vec3(1.5f, 1.5f,1.0f));//缩放
+    //trans = glm::translate(trans, glm::vec3(-0.3f, 0, 0));//移动
+    //trans = glm::rotate(trans, glm::radians(45.0f), glm::vec3(0, 0, 1.0f));//旋转
+    //trans = glm::scale(trans, glm::vec3(1.5f, 1.5f,1.0f));//缩放
+    glm::mat4 modelMat;
+    modelMat = glm::rotate(modelMat, glm::radians(-55.0f), glm::vec3(1.0, 0, 0));
+    glm::mat4 viewMat;
+    viewMat = glm::translate(viewMat, glm::vec3(0, 0, -3.0f));
+    glm::mat4 projMat;
+    projMat = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
     //渲染循环
     while (!glfwWindowShouldClose(window)) {
@@ -127,7 +133,10 @@ int main() {
         //使用着色器
         myShader->use();
 
-        glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "transform"), 1, GL_FALSE, glm::value_ptr(trans));
+        //glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "transform"), 1, GL_FALSE, glm::value_ptr(trans));
+        glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat));
+        glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "viewMat"), 1, GL_FALSE, glm::value_ptr(viewMat));
+        glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "projMat"), 1, GL_FALSE, glm::value_ptr(projMat));
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);//矩形
 
         glfwSwapBuffers(window);

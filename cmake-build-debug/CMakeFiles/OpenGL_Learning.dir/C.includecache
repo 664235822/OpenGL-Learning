@@ -22,7 +22,15 @@ winapifamily.h
 dlfcn.h
 -
 
+/usr/local/include/KHR/khrplatform.h
+stdint.h
+-
+inttypes.h
+-
+stdint.h
+-
+
 /usr/local/include/glad/glad.h
-KHR/khrplatform.h
+khrplatform.h
 -
 

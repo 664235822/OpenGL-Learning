@@ -12,7 +12,7 @@ include_directories(${GLEW_H} ${GLFW_H} ${GLAD_H} ${KH_H} ${GLM_H})
 
 # 添加目标链接
 set(GLEW_LINK /usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.dylib)
-set(GLFW_LINK /usr/local/Cellar/glfw/3.3/lib/libglfw.3.dylib)
+set(GLFW_LINK /usr/local/Cellar/glfw/3.3.1/lib/libglfw.3.dylib)
 link_libraries(${OPENGL} ${GLEW_LINK} ${GLFW_LINK})
 
 # 执行编译命令
