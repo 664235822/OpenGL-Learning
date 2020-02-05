@@ -15,6 +15,8 @@ cmath
 -
 src/Shader.h
 /Volumes/项目/OpenGL-Learning/src/Shader.h
+src/Camera.h
+/Volumes/项目/OpenGL-Learning/src/Camera.h
 src/stb_image.h
 /Volumes/项目/OpenGL-Learning/src/stb_image.h
 glm.hpp
@@ -22,6 +24,16 @@ glm.hpp
 gtc/matrix_transform.hpp
 -
 gtc/type_ptr.hpp
+-
+
+/Volumes/项目/OpenGL-Learning/src/Camera.cpp
+Camera.h
+/Volumes/项目/OpenGL-Learning/src/Camera.h
+
+/Volumes/项目/OpenGL-Learning/src/Camera.h
+glm.hpp
+-
+gtc/matrix_transform.hpp
 -
 
 /Volumes/项目/OpenGL-Learning/src/Shader.h

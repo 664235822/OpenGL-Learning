@@ -2,6 +2,7 @@
 #include <glfw3.h>
 #include <cmath>
 #include "src/Shader.h"
+#include "src/Camera.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 
@@ -83,6 +84,15 @@ glm::vec3 cubePositions[] = {
 
 void processInput(GLFWwindow *window);
 
+void mouse_callback(GLFWwindow *window, double xPos, double yPos);
+
+float lastX, lastY;
+bool firstMouse = true;
+
+//相机
+//Camera camera(glm::vec3(0, 0, 3.0f), glm::vec3(0, 0, 0), glm::vec3(0, 1.0f, 0));
+Camera camera(glm::vec3(0, 0, 3.0f), glm::radians(15.0f), glm::radians(180.0f), glm::vec3(0, 1.0f, 0));
+
 int main() {
     //初始化GLFW
     if (!glfwInit()) {
@@ -121,6 +131,10 @@ int main() {
     //深度缓冲
     glEnable(GL_DEPTH_TEST);
 
+    //鼠标显示
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetCursorPosCallback(window, mouse_callback);
+
     //创建VAO
     unsigned int VAO;
     glGenVertexArrays(1, &VAO);
@@ -139,7 +153,7 @@ int main() {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     //创建着色器
-    Shader *myShader = new Shader("../shader/vertexShader.txt", "../shader/fragmentShader.txt");
+    Shader myShader("../shader/vertexShader.txt", "../shader/fragmentShader.txt");
 
     //顶点属性
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *) 0);
@@ -174,7 +188,8 @@ int main() {
     glm::mat4 modelMat;
     modelMat = glm::rotate(modelMat, glm::radians(-55.0f), glm::vec3(1.0, 0, 0));
     glm::mat4 viewMat;
-    viewMat = glm::translate(viewMat, glm::vec3(0, 0, -3.0f));
+    //viewMat = glm::translate(viewMat, glm::vec3(0, 0, -3.0f));
+    //viewMat = camera.GetViewMatrix();
     glm::mat4 projMat;
     projMat = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
@@ -190,26 +205,28 @@ int main() {
         glBindVertexArray(VAO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
+        viewMat = camera.GetViewMatrix();
 
         for (int i = 0; i < 10; i++) {
             glm::mat4 modelMat2;
             modelMat2 = glm::translate(modelMat2, cubePositions[i]);
 
             //使用着色器
-            myShader->use();
+            myShader.use();
 
             //glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "transform"), 1, GL_FALSE, glm::value_ptr(trans));
-            glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat2));
-            glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "viewMat"), 1, GL_FALSE, glm::value_ptr(viewMat));
-            glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "projMat"), 1, GL_FALSE, glm::value_ptr(projMat));
+            glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat2));
+            glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "viewMat"), 1, GL_FALSE, glm::value_ptr(viewMat));
+            glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "projMat"), 1, GL_FALSE, glm::value_ptr(projMat));
             glDrawArrays(GL_TRIANGLES, 0, 36);//画三角形
             //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);//矩形
         }
 
 
-
         glfwSwapBuffers(window);
         glfwPollEvents();
+
+        camera.UpdateCameraPosition();
     }
 
     //退出
@@ -223,4 +240,30 @@ void processInput(GLFWwindow *window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        camera.speedZ = 0.1f;
+    } else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        camera.speedZ = -0.1f;
+    } else {
+        camera.speedZ = 0;
+    }
+}
+
+//鼠标输入
+void mouse_callback(GLFWwindow *window, double xPos, double yPos) {
+    if (firstMouse) {
+        lastX = xPos;
+        lastY = yPos;
+
+        firstMouse = false;
+    }
+
+    float deltaX, deltaY;
+    deltaX = xPos - lastX;
+    deltaY = yPos - lastY;
+
+    lastX = xPos;
+    lastY = yPos;
+
+    camera.ProcessMouseMovement(deltaX, deltaY);
 }

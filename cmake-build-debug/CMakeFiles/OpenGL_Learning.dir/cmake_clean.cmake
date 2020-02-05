@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/OpenGL_Learning.dir/main.cpp.o"
+  "CMakeFiles/OpenGL_Learning.dir/src/Camera.cpp.o"
   "CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o"
   "CMakeFiles/OpenGL_Learning.dir/src/glad.c.o"
   "OpenGL_Learning"

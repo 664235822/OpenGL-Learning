@@ -19,6 +19,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Volumes/项目/OpenGL-Learning/main.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/main.cpp.o"
+  "/Volumes/项目/OpenGL-Learning/src/Camera.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/Camera.cpp.o"
   "/Volumes/项目/OpenGL-Learning/src/Shader.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
