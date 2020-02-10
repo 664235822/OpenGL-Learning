@@ -38,7 +38,7 @@ void Camera::UpdateCameraVectors() {
 }
 
 void Camera::ProcessMouseMovement(float deltaX, float deltaY) {
-    Pitch += deltaY * senseY;
+    Pitch -= deltaY * senseY;
     Yaw -= deltaX * senseX;
     UpdateCameraVectors();
 }

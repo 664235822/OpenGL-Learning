@@ -9,6 +9,5 @@ out vec4 vertexColor;
 out vec2 texCoord;
 void main(){
 gl_Position = projMat * viewMat * modelMat * vec4(aPos.x, aPos.y, aPos.z, 1.0);
-vertexColor = vec4(aColor.x, aColor.y, aColor.z, 1.0);
 texCoord = aTexCoord;
 }

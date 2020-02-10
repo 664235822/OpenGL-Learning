@@ -12,14 +12,6 @@
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
 
-//float vertices[] = {
-//        //位置3,颜色3,纹理2
-//        0.5f, 0.5f, 0.0f, 1.0f, 0, 0, 1.0f, 1.0f,
-//        0.5f, -0.5f, 0.0f, 0, 1.0f, 0, 1.0f, 0,
-//        -0.5f, -0.5f, 0.0f, 0, 0, 1.0f, 0, 0,
-//        -0.5f, 0.5f, 0.0f, 0.3f, 0.5f, 0.7f, 0, 1.0f
-//};
-
 float vertices[] = {
         -0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
         0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
@@ -64,11 +56,6 @@ float vertices[] = {
         -0.5f, 0.5f, -0.5f, 0.0f, 1.0f
 };
 
-unsigned int indices[] = {
-        0, 1, 2,
-        2, 3, 0
-};
-
 glm::vec3 cubePositions[] = {
         glm::vec3(0.0f, 0.0f, 0.0f),
         glm::vec3(2.0f, 5.0f, -15.0f),
@@ -86,12 +73,13 @@ void processInput(GLFWwindow *window);
 
 void mouse_callback(GLFWwindow *window, double xPos, double yPos);
 
-float lastX, lastY;
-bool firstMouse = true;
+unsigned int LoadImageToGPU(const char *filename, GLint internalFormat, GLenum format, int textureSlot);
 
 //相机
-//Camera camera(glm::vec3(0, 0, 3.0f), glm::vec3(0, 0, 0), glm::vec3(0, 1.0f, 0));
 Camera camera(glm::vec3(0, 0, 3.0f), glm::radians(15.0f), glm::radians(180.0f), glm::vec3(0, 1.0f, 0));
+
+float lastX, lastY;
+bool firstMouse = true;
 
 int main() {
     //初始化GLFW
@@ -124,10 +112,6 @@ int main() {
     //视口
     glViewport(0, 0, 800, 600);
 
-    //背面剔除
-    //glEnable(GL_CULL_FACE);
-    //glCullFace(GL_BACK);
-
     //深度缓冲
     glEnable(GL_DEPTH_TEST);
 
@@ -146,14 +130,8 @@ int main() {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    //创建EBO
-    unsigned int EBO;
-    glGenBuffers(1, &EBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
     //创建着色器
-    Shader myShader("../shader/vertexShader.txt", "../shader/fragmentShader.txt");
+    Shader myShader("../shader/vertexShader.vert", "../shader/fragmentShader.frag");
 
     //顶点属性
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *) 0);
@@ -167,29 +145,11 @@ int main() {
 
     //应用纹理
     unsigned int texBuffer;
-    glGenTextures(1, &texBuffer);
-    glBindTexture(GL_TEXTURE_2D, texBuffer);
-
-    int width, height, nrChannel;
-    unsigned char *data = stbi_load("../img/wood.jpeg", &width, &height, &nrChannel, 0);
-    if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    } else {
-        printf("load image failed.");
-    }
-    stbi_image_free(data);
+    texBuffer = LoadImageToGPU("../img/wood.jpeg", GL_RGB, GL_RGB, 0);
 
     //位置变换
-    glm::mat4 trans;
-    //trans = glm::translate(trans, glm::vec3(-0.3f, 0, 0));//移动
-    //trans = glm::rotate(trans, glm::radians(45.0f), glm::vec3(0, 0, 1.0f));//旋转
-    //trans = glm::scale(trans, glm::vec3(1.5f, 1.5f,1.0f));//缩放
     glm::mat4 modelMat;
-    modelMat = glm::rotate(modelMat, glm::radians(-55.0f), glm::vec3(1.0, 0, 0));
     glm::mat4 viewMat;
-    //viewMat = glm::translate(viewMat, glm::vec3(0, 0, -3.0f));
-    //viewMat = camera.GetViewMatrix();
     glm::mat4 projMat;
     projMat = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
@@ -197,35 +157,35 @@ int main() {
     while (!glfwWindowShouldClose(window)) {
         processInput(window);
 
+        //清屏
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-        //画矩形
-        glBindTexture(GL_TEXTURE_2D, texBuffer);
-        glBindVertexArray(VAO);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
         viewMat = camera.GetViewMatrix();
 
         for (int i = 0; i < 10; i++) {
-            glm::mat4 modelMat2;
-            modelMat2 = glm::translate(modelMat2, cubePositions[i]);
+            //设置模型的位置
+            modelMat = glm::translate(glm::mat4(1.0f), cubePositions[i]);
 
-            //使用着色器
+            //设置材质的着色器
             myShader.use();
-
-            //glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "transform"), 1, GL_FALSE, glm::value_ptr(trans));
-            glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat2));
+            //设置材质的纹理
+            glBindTexture(GL_TEXTURE_2D, texBuffer);
+            //设置材质的Uniform
+            glUniform1i(glGetUniformLocation(myShader.ID, "ourTexture"), 0);
+            glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat));
             glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "viewMat"), 1, GL_FALSE, glm::value_ptr(viewMat));
             glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "projMat"), 1, GL_FALSE, glm::value_ptr(projMat));
-            glDrawArrays(GL_TRIANGLES, 0, 36);//画三角形
-            //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);//矩形
+            //设置模型
+            glBindVertexArray(VAO);
+
+            //画
+            glDrawArrays(GL_TRIANGLES, 0, 36);
         }
 
-
+        //刷新缓冲
         glfwSwapBuffers(window);
         glfwPollEvents();
-
         camera.UpdateCameraPosition();
     }
 
@@ -266,4 +226,24 @@ void mouse_callback(GLFWwindow *window, double xPos, double yPos) {
     lastY = yPos;
 
     camera.ProcessMouseMovement(deltaX, deltaY);
+}
+
+//加载图像到GPU
+unsigned int LoadImageToGPU(const char *filename, GLint internalFormat, GLenum format, int textureSlot) {
+    unsigned int texBuffer;
+    glGenTextures(1, &texBuffer);
+    glActiveTexture(GL_TEXTURE0 + textureSlot);
+    glBindTexture(GL_TEXTURE_2D, texBuffer);
+
+    int width, height, nrChannel;
+    unsigned char *data = stbi_load(filename, &width, &height, &nrChannel, 0);
+    if (data) {
+        glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        printf("load image failed.");
+    }
+    stbi_image_free(data);
+
+    return texBuffer;
 }
