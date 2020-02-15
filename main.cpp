@@ -180,9 +180,11 @@ int main() {
             glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "viewMat"), 1, GL_FALSE, glm::value_ptr(viewMat));
             glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "projMat"), 1, GL_FALSE, glm::value_ptr(projMat));
             glUniform3f(glGetUniformLocation(myShader.ID, "objColor"), 1.0f, 0.5f, 0.31f);
-            glUniform3f(glGetUniformLocation(myShader.ID, "ambientColor"), 1.0f, 1.0f, 1.0f);
+            glUniform3f(glGetUniformLocation(myShader.ID, "ambientColor"), 0.5f, 0.5f, 0.5f);
             glUniform3f(glGetUniformLocation(myShader.ID, "lightPos"), 10.0f, 10.0f, 5.0f);
             glUniform3f(glGetUniformLocation(myShader.ID, "lightColor"), 1.0f, 1.0f, 1.0f);
+            glUniform3f(glGetUniformLocation(myShader.ID, "cameraPos"), camera.Position.x, camera.Position.y,
+                        camera.Position.z);
             //设置模型
             glBindVertexArray(VAO);
 
@@ -207,12 +209,29 @@ void processInput(GLFWwindow *window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
+
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
         camera.speedZ = 0.1f;
     } else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
         camera.speedZ = -0.1f;
     } else {
         camera.speedZ = 0;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+        camera.speedX = 0.1f;
+    } else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+        camera.speedX = -0.1f;
+    } else {
+        camera.speedX = 0;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
+        camera.speedY = 0.1f;
+    } else if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
+        camera.speedY = -0.1f;
+    } else {
+        camera.speedY = 0;
     }
 }
 

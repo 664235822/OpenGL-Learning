@@ -17,5 +17,5 @@ void main(){
     vertexColor = vec4(color.rgb, 1.0f);
     texCoord = aTexCoord;
     FragPos = vec3(modelMat * vec4(aPos, 1.0f));
-    Normal = mat3(modelMat) * normal;
+    Normal = mat3(transpose(inverse(modelMat))) * normal;
 }

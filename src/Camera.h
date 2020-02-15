@@ -27,6 +27,8 @@ public:
     float senseX = 0.01f;
     float senseY = 0.01f;
 
+    float speedX = 0;
+    float speedY = 0;
     float speedZ = 0;
 
     glm::mat4 GetViewMatrix();
