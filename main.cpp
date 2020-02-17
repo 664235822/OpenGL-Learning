@@ -3,6 +3,7 @@
 #include <cmath>
 #include "src/Shader.h"
 #include "src/Camera.h"
+#include "src/Material.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 
@@ -131,7 +132,13 @@ int main() {
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     //创建着色器
-    Shader myShader("../shader/vertexShader.vert", "../shader/fragmentShader.frag");
+    Shader *myShader = new Shader("../shader/vertexShader.vert", "../shader/fragmentShader.frag");
+    //创建材质球
+    Material *myMaterial = new Material(myShader,
+                                        glm::vec3(1.0f, 1.0f, 1.0f),
+                                        glm::vec3(1.0f, 1.0f, 1.0f),
+                                        glm::vec3(1.0f, 1.0f, 1.0f),
+                                        32.0f);
 
     //顶点属性
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) 0);
@@ -171,20 +178,22 @@ int main() {
             modelMat = glm::translate(glm::mat4(1.0f), cubePositions[i]);
 
             //设置材质的着色器
-            myShader.use();
+            myShader->use();
             //设置材质的纹理
             glBindTexture(GL_TEXTURE_2D, texBuffer);
             //设置材质的Uniform
-            glUniform1i(glGetUniformLocation(myShader.ID, "ourTexture"), 0);
-            glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat));
-            glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "viewMat"), 1, GL_FALSE, glm::value_ptr(viewMat));
-            glUniformMatrix4fv(glGetUniformLocation(myShader.ID, "projMat"), 1, GL_FALSE, glm::value_ptr(projMat));
-            glUniform3f(glGetUniformLocation(myShader.ID, "objColor"), 1.0f, 0.5f, 0.31f);
-            glUniform3f(glGetUniformLocation(myShader.ID, "ambientColor"), 0.5f, 0.5f, 0.5f);
-            glUniform3f(glGetUniformLocation(myShader.ID, "lightPos"), 10.0f, 10.0f, 5.0f);
-            glUniform3f(glGetUniformLocation(myShader.ID, "lightColor"), 1.0f, 1.0f, 1.0f);
-            glUniform3f(glGetUniformLocation(myShader.ID, "cameraPos"), camera.Position.x, camera.Position.y,
+            glUniform1i(glGetUniformLocation(myShader->ID, "ourTexture"), 0);
+            glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "modelMat"), 1, GL_FALSE, glm::value_ptr(modelMat));
+            glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "viewMat"), 1, GL_FALSE, glm::value_ptr(viewMat));
+            glUniformMatrix4fv(glGetUniformLocation(myShader->ID, "projMat"), 1, GL_FALSE, glm::value_ptr(projMat));
+            glUniform3f(glGetUniformLocation(myShader->ID, "objColor"), 1.0f, 0.5f, 0.31f);
+            glUniform3f(glGetUniformLocation(myShader->ID, "ambientColor"), 0.5f, 0.5f, 0.5f);
+            glUniform3f(glGetUniformLocation(myShader->ID, "lightPos"), 10.0f, 10.0f, 5.0f);
+            glUniform3f(glGetUniformLocation(myShader->ID, "lightColor"), 1.0f, 1.0f, 1.0f);
+            glUniform3f(glGetUniformLocation(myShader->ID, "cameraPos"), camera.Position.x, camera.Position.y,
                         camera.Position.z);
+            //设置材质球
+            myMaterial->use();
             //设置模型
             glBindVertexArray(VAO);
 

@@ -42,18 +42,18 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
         vertex = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertex, 1, &vertexSource, NULL);
         glCompileShader(vertex);
-        checkCompileErrors(vertex,"VERTEX");
+        checkCompileErrors(vertex, "VERTEX");
 
         fragment = glCreateShader(GL_FRAGMENT_SHADER);
         glShaderSource(fragment, 1, &fragmentSource, NULL);
         glCompileShader(fragment);
-        checkCompileErrors(fragment,"FRAGMENT");
+        checkCompileErrors(fragment, "FRAGMENT");
 
         ID = glCreateProgram();
         glAttachShader(ID, vertex);
         glAttachShader(ID, fragment);
         glLinkProgram(ID);
-        checkCompileErrors(ID,"PROGRAM");
+        checkCompileErrors(ID, "PROGRAM");
 
         glDeleteShader(vertex);
         glDeleteShader(fragment);
@@ -84,3 +84,5 @@ void Shader::checkCompileErrors(unsigned int ID, string type) {
         }
     }
 }
+
+

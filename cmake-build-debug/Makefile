@@ -177,6 +177,33 @@ src/Camera.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Camera.cpp.s
 .PHONY : src/Camera.cpp.s
 
+src/Material.o: src/Material.cpp.o
+
+.PHONY : src/Material.o
+
+# target to build an object file
+src/Material.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Material.cpp.o
+.PHONY : src/Material.cpp.o
+
+src/Material.i: src/Material.cpp.i
+
+.PHONY : src/Material.i
+
+# target to preprocess a source file
+src/Material.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Material.cpp.i
+.PHONY : src/Material.cpp.i
+
+src/Material.s: src/Material.cpp.s
+
+.PHONY : src/Material.s
+
+# target to generate assembly for a file
+src/Material.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Material.cpp.s
+.PHONY : src/Material.cpp.s
+
 src/Shader.o: src/Shader.cpp.o
 
 .PHONY : src/Shader.o
@@ -246,6 +273,9 @@ help:
 	@echo "... src/Camera.o"
 	@echo "... src/Camera.i"
 	@echo "... src/Camera.s"
+	@echo "... src/Material.o"
+	@echo "... src/Material.i"
+	@echo "... src/Material.s"
 	@echo "... src/Shader.o"
 	@echo "... src/Shader.i"
 	@echo "... src/Shader.s"

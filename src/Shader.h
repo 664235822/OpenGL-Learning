@@ -6,11 +6,15 @@
 
 #include <string>
 
+#include <glm.hpp>
+#include <gtc/matrix_transform.hpp>
+#include <gtc/type_ptr.hpp>
+
 using namespace std;
 
 class Shader {
 public:
-    Shader(const char* vertexPath,const char* fragmentPath);
+    Shader(const char *vertexPath, const char *fragmentPath);
 
     void use();
 
@@ -19,10 +23,10 @@ private:
     string vertexString;
     string fragmentString;
 
-    const char* vertexSource;
-    const char* fragmentSource;
+    const char *vertexSource;
+    const char *fragmentSource;
 
-    void checkCompileErrors(unsigned int ID,string type);
+    void checkCompileErrors(unsigned int ID, string type);
 };
 
 
