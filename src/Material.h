@@ -14,19 +14,22 @@
 class Material {
 
 public:
-    Material(Shader* shader,glm::vec3 _ambient,glm::vec3 _diffuse,glm::vec3 _specular ,float _shininess);
+    Material(Shader *shader, glm::vec3 _ambient, unsigned int _diffuse, glm::vec3 _specular, float _shininess);
 
-    Shader * shader;
+    Shader *shader;
     glm::vec3 ambient;
-    glm::vec3 diffuse;
+    unsigned int diffuse;
     glm::vec3 specular;
     float shininess;
 
     void use();
+
 private:
     void setUniform3f(const char *paramNameString, glm::vec3 param);
 
     void setUniform1f(const char *paramNameString, float param);
+
+    void setUniform1i(const char *paramNameString, unsigned int slot);
 };
 
 

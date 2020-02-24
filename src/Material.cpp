@@ -5,7 +5,7 @@
 #include "Material.h"
 #include <glew.h>
 
-Material::Material(Shader *_shader, glm::vec3 _ambient, glm::vec3 _diffuse, glm::vec3 _specular, float _shininess) :
+Material::Material(Shader *_shader, glm::vec3 _ambient, unsigned int _diffuse, glm::vec3 _specular, float _shininess) :
         shader(_shader),
         ambient(_ambient),
         diffuse(_diffuse),
@@ -22,9 +22,15 @@ void Material::setUniform1f(const char *paramNameString, float param) {
     glUniform1f(glGetUniformLocation(shader->ID, paramNameString), param);
 }
 
+void Material::setUniform1i(const char *paramNameString, unsigned int slot) {
+    glUniform1i(glGetUniformLocation(shader->ID, paramNameString), slot);
+}
+
 void Material::use() {
     setUniform3f("material.ambient", ambient);
-    setUniform3f("material.diffuse", diffuse);
+    setUniform1i("material.diffuse", 0);
     setUniform3f("material.specular", specular);
     setUniform1f("material.shininess", shininess);
 }
+
+
