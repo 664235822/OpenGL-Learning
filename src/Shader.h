@@ -6,19 +6,17 @@
 
 #include <string>
 
-#include <glm.hpp>
-#include <gtc/matrix_transform.hpp>
-#include <gtc/type_ptr.hpp>
-
 using namespace std;
 
 class Shader {
+
 public:
     Shader(const char *vertexPath, const char *fragmentPath);
 
     void use();
 
     unsigned int ID;//ShaderProgramID
+
 private:
     string vertexString;
     string fragmentString;
