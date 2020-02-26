@@ -191,7 +191,10 @@ int main() {
             glUniform3f(glGetUniformLocation(myShader->ID, "cameraPos"), camera.Position.x, camera.Position.y,
                         camera.Position.z);
             //设置材质球
-            myMaterial->use();
+            myMaterial->setUniform3f("material.ambient", myMaterial->ambient);
+            myMaterial->setUniform1i("material.diffuse", myMaterial->Diffuse);
+            myMaterial->setUniform1i("material.specular", myMaterial->Specular);
+            myMaterial->setUniform1f("material.shininess", myMaterial->shininess);
             //设置模型
             glBindVertexArray(VAO);
 

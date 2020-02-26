@@ -26,11 +26,4 @@ void Material::setUniform1i(const char *paramNameString, unsigned int slot) {
     glUniform1i(glGetUniformLocation(shader->ID, paramNameString), slot);
 }
 
-void Material::use() {
-    setUniform3f("material.ambient", ambient);
-    setUniform1i("material.diffuse", 0);
-    setUniform1i("material.specular", 1);
-    setUniform1f("material.shininess", shininess);
-}
-
 

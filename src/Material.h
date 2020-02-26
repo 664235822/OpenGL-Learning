@@ -22,14 +22,17 @@ public:
     unsigned int specular;
     float shininess;
 
-    void use();
+    enum Slot{
+        Diffuse,
+        Specular
+    };
 
-private:
     void setUniform3f(const char *paramNameString, glm::vec3 param);
 
     void setUniform1f(const char *paramNameString, float param);
 
     void setUniform1i(const char *paramNameString, unsigned int slot);
+
 };
 
 

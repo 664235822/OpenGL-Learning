@@ -34,6 +34,12 @@ glm.hpp
 gtc/matrix_transform.hpp
 -
 
+/Volumes/项目/OpenGL-Learning/src/Material.cpp
+Material.h
+/Volumes/项目/OpenGL-Learning/src/Material.h
+glew.h
+-
+
 /Volumes/项目/OpenGL-Learning/src/Material.h
 Shader.h
 /Volumes/项目/OpenGL-Learning/src/Shader.h
