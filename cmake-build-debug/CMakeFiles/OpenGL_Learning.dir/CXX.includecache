@@ -21,6 +21,8 @@ src/Material.h
 /Volumes/项目/OpenGL-Learning/src/Material.h
 src/DirectionLight.h
 /Volumes/项目/OpenGL-Learning/src/DirectionLight.h
+src/PointLight.h
+/Volumes/项目/OpenGL-Learning/src/PointLight.h
 src/stb_image.h
 /Volumes/项目/OpenGL-Learning/src/stb_image.h
 glm.hpp
@@ -43,6 +45,14 @@ glm.hpp
 /Volumes/项目/OpenGL-Learning/src/Material.h
 Shader.h
 /Volumes/项目/OpenGL-Learning/src/Shader.h
+glm.hpp
+-
+
+/Volumes/项目/OpenGL-Learning/src/PointLight.cpp
+PointLight.h
+/Volumes/项目/OpenGL-Learning/src/PointLight.h
+
+/Volumes/项目/OpenGL-Learning/src/PointLight.h
 glm.hpp
 -
 
@@ -98,7 +108,7 @@ OpenGL/glu.h
 GL/glu.h
 -
 
-/usr/local/Cellar/glfw/3.3.1/include/GLFW/glfw3.h
+/usr/local/Cellar/glfw/3.3.2/include/GLFW/glfw3.h
 stddef.h
 -
 stdint.h

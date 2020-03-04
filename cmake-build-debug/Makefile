@@ -231,6 +231,33 @@ src/Material.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Material.cpp.s
 .PHONY : src/Material.cpp.s
 
+src/PointLight.o: src/PointLight.cpp.o
+
+.PHONY : src/PointLight.o
+
+# target to build an object file
+src/PointLight.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/PointLight.cpp.o
+.PHONY : src/PointLight.cpp.o
+
+src/PointLight.i: src/PointLight.cpp.i
+
+.PHONY : src/PointLight.i
+
+# target to preprocess a source file
+src/PointLight.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/PointLight.cpp.i
+.PHONY : src/PointLight.cpp.i
+
+src/PointLight.s: src/PointLight.cpp.s
+
+.PHONY : src/PointLight.s
+
+# target to generate assembly for a file
+src/PointLight.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/PointLight.cpp.s
+.PHONY : src/PointLight.cpp.s
+
 src/Shader.o: src/Shader.cpp.o
 
 .PHONY : src/Shader.o
@@ -306,6 +333,9 @@ help:
 	@echo "... src/Material.o"
 	@echo "... src/Material.i"
 	@echo "... src/Material.s"
+	@echo "... src/PointLight.o"
+	@echo "... src/PointLight.i"
+	@echo "... src/PointLight.s"
 	@echo "... src/Shader.o"
 	@echo "... src/Shader.i"
 	@echo "... src/Shader.s"
