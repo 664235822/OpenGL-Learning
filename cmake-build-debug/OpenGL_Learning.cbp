@@ -123,6 +123,12 @@
 		<Unit filename="/Volumes/项目/OpenGL-Learning/src/Shader.h">
 			<Option target="OpenGL_Learning"/>
 		</Unit>
+		<Unit filename="/Volumes/项目/OpenGL-Learning/src/SpotLight.cpp">
+			<Option target="OpenGL_Learning"/>
+		</Unit>
+		<Unit filename="/Volumes/项目/OpenGL-Learning/src/SpotLight.h">
+			<Option target="OpenGL_Learning"/>
+		</Unit>
 		<Unit filename="/Volumes/项目/OpenGL-Learning/src/glad.c">
 			<Option target="OpenGL_Learning"/>
 		</Unit>

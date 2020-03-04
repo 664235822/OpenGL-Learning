@@ -16,8 +16,14 @@ struct LightPoint{
     float quadratic;
 };
 
+struct LightSpot{
+    float cosInnerPhy;
+    float cosOuterPhy;
+};
+
 uniform Material material;
 uniform LightPoint lightPoint;
+uniform LightSpot lightSpot;
 
 uniform vec3 objColor;
 uniform vec3 ambientColor;
@@ -28,9 +34,6 @@ uniform vec3 cameraPos;
 
 out vec4 FragColor;
 void main(){
-    float dist = length(lightPos - FragPos);
-    float attenuation = 1.0 / (lightPoint.constant + lightPoint.linear * dist + lightPoint.quadratic * (dist * dist));
-
     vec3 lightDir = normalize(lightPos - FragPos);
     vec3 reflectVec = reflect(-lightDirUniform, Normal);
     vec3 cameraVec = normalize(cameraPos - FragPos);
@@ -42,5 +45,26 @@ void main(){
 
     vec3 diffuse = texture(material.diffuse, texCoord).rgb * max(dot(lightDir, Normal), 0) * lightColor;
 
-    FragColor = vec4((ambient + (diffuse + specular) * attenuation) * objColor, 1.0f);
+    float dist = length(lightPos - FragPos);
+    float attenuation = 1.0 / (lightPoint.constant + lightPoint.linear * dist + lightPoint.quadratic * (dist * dist));
+
+    float cosTheta = dot(normalize(FragPos - lightPos), -1 * lightDirUniform);
+
+    //平行光源
+    //FragColor = vec4((ambient + diffuse + specular) * objColor, 1.0f);
+
+    //点光源
+    //FragColor = vec4((ambient + (diffuse + specular) * attenuation) * objColor, 1.0f);
+
+    //聚光源
+    float spotRatio;
+    if (cosTheta > lightSpot.cosInnerPhy){
+        spotRatio = 1.0f;
+    } else if (cosTheta > lightSpot.cosOuterPhy){
+        spotRatio = 1.0f -  (cosTheta - lightSpot.cosInnerPhy) / (lightSpot.cosOuterPhy - lightSpot.cosInnerPhy);
+    } else {
+        spotRatio = 0;
+    }
+    FragColor = vec4((ambient + (diffuse + specular) * spotRatio) * objColor, 1.0f);
+
 }

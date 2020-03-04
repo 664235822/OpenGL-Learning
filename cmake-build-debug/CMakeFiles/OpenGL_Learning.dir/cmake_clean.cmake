@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/OpenGL_Learning.dir/src/Material.cpp.o"
   "CMakeFiles/OpenGL_Learning.dir/src/PointLight.cpp.o"
   "CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o"
+  "CMakeFiles/OpenGL_Learning.dir/src/SpotLight.cpp.o"
   "CMakeFiles/OpenGL_Learning.dir/src/glad.c.o"
   "OpenGL_Learning"
   "OpenGL_Learning.pdb"

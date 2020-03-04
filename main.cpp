@@ -6,6 +6,7 @@
 #include "src/Material.h"
 #include "src/DirectionLight.h"
 #include "src/PointLight.h"
+#include "src/SpotLight.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 
@@ -145,8 +146,11 @@ int main() {
     //DirectionLight *light = new DirectionLight(glm::vec3(10.0f, 10.0f, -5.0f),
     //glm::vec3(glm::radians(45.0f), glm::radians(45.0f), 0));
     //创建点光源
-    PointLight *light = new PointLight(glm::vec3(1.0f, 1.0f, -1.0f),
-                                       glm::vec3(glm::radians(45.0f), glm::radians(45.0f), 0));
+    //PointLight *light = new PointLight(glm::vec3(1.0f, 1.0f, -1.0f),
+    //glm::vec3(glm::radians(45.0f), glm::radians(45.0f), 0));
+    //创建聚光源
+    SpotLight *light = new SpotLight(glm::vec3(0.0f, 5.0f, 0.0f),
+            glm::vec3(glm::radians(90.0f), 0, 0));
 
     //顶点属性
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) 0);
@@ -200,9 +204,11 @@ int main() {
                         light->direction.y, light->direction.z);
             glUniform3f(glGetUniformLocation(myShader->ID, "lightColor"), light->color.r,
                         light->color.g, light->color.b);
-            glUniform1f(glGetUniformLocation(myShader->ID, "lightPoint.constant"), light->constant);
-            glUniform1f(glGetUniformLocation(myShader->ID, "lightPoint.linear"), light->linear);
-            glUniform1f(glGetUniformLocation(myShader->ID, "lightPoint.quadratic"), light->quadratic);
+            //glUniform1f(glGetUniformLocation(myShader->ID, "lightPoint.constant"), light->constant);
+            //glUniform1f(glGetUniformLocation(myShader->ID, "lightPoint.linear"), light->linear);
+            //glUniform1f(glGetUniformLocation(myShader->ID, "lightPoint.quadratic"), light->quadratic);
+            glUniform1f(glGetUniformLocation(myShader->ID, "lightSpot.cosInnerPhy"), light->cosInnerPhy);
+            glUniform1f(glGetUniformLocation(myShader->ID, "lightSpot.cosOuterPhy"), light->cosOuterPhy);
             glUniform3f(glGetUniformLocation(myShader->ID, "cameraPos"), camera.Position.x, camera.Position.y,
                         camera.Position.z);
             //设置材质球
