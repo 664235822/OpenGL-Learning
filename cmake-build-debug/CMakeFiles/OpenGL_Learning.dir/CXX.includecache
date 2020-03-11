@@ -58,12 +58,6 @@ glm.hpp
 string
 -
 
-/Volumes/项目/OpenGL-Learning/src/SpotLight.cpp
-SpotLight.h
-/Volumes/项目/OpenGL-Learning/src/SpotLight.h
-gtx/rotate_vector.hpp
-/Volumes/项目/OpenGL-Learning/src/gtx/rotate_vector.hpp
-
 /Volumes/项目/OpenGL-Learning/src/SpotLight.h
 glm.hpp
 -
@@ -851,26 +845,6 @@ type_ptr.inl
 /usr/local/include/glm/glm/gtc/type_ptr.inl
 cstring
 -
-
-/usr/local/include/glm/glm/gtx/rotate_vector.hpp
-../glm.hpp
-/usr/local/include/glm/glm/glm.hpp
-../gtx/transform.hpp
-/usr/local/include/glm/glm/gtx/transform.hpp
-rotate_vector.inl
-/usr/local/include/glm/glm/gtx/rotate_vector.inl
-
-/usr/local/include/glm/glm/gtx/rotate_vector.inl
-
-/usr/local/include/glm/glm/gtx/transform.hpp
-../glm.hpp
-/usr/local/include/glm/glm/glm.hpp
-../gtc/matrix_transform.hpp
-/usr/local/include/glm/glm/gtc/matrix_transform.hpp
-transform.inl
-/usr/local/include/glm/glm/gtx/transform.inl
-
-/usr/local/include/glm/glm/gtx/transform.inl
 
 /usr/local/include/glm/glm/integer.hpp
 detail/func_integer.hpp
