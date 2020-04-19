@@ -13,6 +13,7 @@ set(CMAKE_C_COMPILER_ID "AppleClang")
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/Cellar/glew/2.1.0_1/include/GL"
   "/usr/local/Cellar/glfw/3.3.2/include/GLFW"
+  "/usr/local/Cellar/assimp/5.0.1/include/assimp"
   "/usr/local/include/glad"
   "/usr/local/include/KHR"
   "/usr/local/include/glm/glm"
@@ -32,6 +33,7 @@ set(CMAKE_CXX_COMPILER_ID "AppleClang")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/Cellar/glew/2.1.0_1/include/GL"
   "/usr/local/Cellar/glfw/3.3.2/include/GLFW"
+  "/usr/local/Cellar/assimp/5.0.1/include/assimp"
   "/usr/local/include/glad"
   "/usr/local/include/KHR"
   "/usr/local/include/glm/glm"
