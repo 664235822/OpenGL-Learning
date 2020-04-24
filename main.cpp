@@ -1,6 +1,7 @@
 #include <glew.h>
 #include <glfw3.h>
 #include <cmath>
+#include "src/Mesh.h"
 #include "src/Shader.h"
 #include "src/Camera.h"
 #include "src/Material.h"
@@ -123,16 +124,8 @@ int main() {
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetCursorPosCallback(window, mouse_callback);
 
-    //创建VAO
-    unsigned int VAO;
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
-
-    //创建VBO
-    unsigned int VBO;
-    glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    //创建网格
+    Mesh *cube = new Mesh(vertices);
 
     //创建着色器
     Shader *myShader = new Shader("../shader/vertexShader.vert", "../shader/fragmentShader.frag");
@@ -163,19 +156,6 @@ int main() {
     SpotLight *lightS = new SpotLight(glm::vec3(0.0f, 5.0f, 0.0f),
                                       glm::vec3(glm::radians(90.0f), 0, 0),
                                       glm::vec3(2.0f, 0, 0));
-
-    //顶点属性
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) 0);
-    glEnableVertexAttribArray(0);
-    //颜色属性
-    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) (3 * sizeof(float)));
-    //glEnableVertexAttribArray(1);
-    //uv属性
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) (3 * sizeof(float)));
-    glEnableVertexAttribArray(2);
-    //法向量属性
-    glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) (6 * sizeof(float)));
-    glEnableVertexAttribArray(3);
 
     //位置变换
     glm::mat4 modelMat;
@@ -278,11 +258,10 @@ int main() {
             myMaterial->setUniform1i("material.diffuse", myMaterial->Diffuse);
             myMaterial->setUniform1i("material.specular", myMaterial->Specular);
             myMaterial->setUniform1f("material.shininess", myMaterial->shininess);
-            //设置模型
-            glBindVertexArray(VAO);
 
             //画
-            glDrawArrays(GL_TRIANGLES, 0, 36);
+            //glDrawArrays(GL_TRIANGLES, 0, 36);
+            cube->Draw(myMaterial);
         }
 
         //刷新缓冲

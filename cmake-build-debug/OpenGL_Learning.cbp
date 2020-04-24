@@ -113,6 +113,12 @@
 		<Unit filename="/Volumes/项目/OpenGL-Learning/src/Material.h">
 			<Option target="OpenGL_Learning"/>
 		</Unit>
+		<Unit filename="/Volumes/项目/OpenGL-Learning/src/Mesh.cpp">
+			<Option target="OpenGL_Learning"/>
+		</Unit>
+		<Unit filename="/Volumes/项目/OpenGL-Learning/src/Mesh.h">
+			<Option target="OpenGL_Learning"/>
+		</Unit>
 		<Unit filename="/Volumes/项目/OpenGL-Learning/src/PointLight.cpp">
 			<Option target="OpenGL_Learning"/>
 		</Unit>

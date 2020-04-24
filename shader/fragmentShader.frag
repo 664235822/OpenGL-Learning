@@ -60,7 +60,7 @@ vec3 CalcLightDirectional(LightDirectional light, vec3 uNormal, vec3 dirToCamera
     return result;
 }
 
-vec3 CalcLightPoint(LightPoint light, vec3 uNormal,vec3 dirToCamera) {
+vec3 CalcLightPoint(LightPoint light, vec3 uNormal, vec3 dirToCamera) {
     float dist = length(light.pos - FragPos);
     float attenuation = 1/(constant + linear * dist + quadratic * (dist * dist));
 
@@ -75,17 +75,17 @@ vec3 CalcLightPoint(LightPoint light, vec3 uNormal,vec3 dirToCamera) {
     return result;
 }
 
-vec3 CalcLightSpot(LightSpot light, vec3 uNormal,vec3 dirToCamera) {
+vec3 CalcLightSpot(LightSpot light, vec3 uNormal, vec3 dirToCamera) {
     float dist = length(light.pos - FragPos);
     float attenuation = 1/(constant + linear * dist + quadratic * (dist * dist));
     float spotRatio;
     float CosTheta = dot(normalize(FragPos - light.pos), -light.dirToLight);
 
-    if(CosTheta > light.cosInnerPhy) {
+    if (CosTheta > light.cosInnerPhy) {
         spotRatio = 1.0f;
-    }else if(CosTheta > light.cosOuterPhy) {
+    } else if (CosTheta > light.cosOuterPhy) {
         spotRatio = (CosTheta - light.cosOuterPhy) / (light.cosInnerPhy - light.cosOuterPhy);
-    }else{
+    } else {
         spotRatio = 0;
     }
 

@@ -23,6 +23,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Volumes/项目/OpenGL-Learning/src/Camera.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/Camera.cpp.o"
   "/Volumes/项目/OpenGL-Learning/src/DirectionLight.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/DirectionLight.cpp.o"
   "/Volumes/项目/OpenGL-Learning/src/Material.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/Material.cpp.o"
+  "/Volumes/项目/OpenGL-Learning/src/Mesh.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/Mesh.cpp.o"
   "/Volumes/项目/OpenGL-Learning/src/PointLight.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/PointLight.cpp.o"
   "/Volumes/项目/OpenGL-Learning/src/Shader.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/Shader.cpp.o"
   "/Volumes/项目/OpenGL-Learning/src/SpotLight.cpp" "/Volumes/项目/OpenGL-Learning/cmake-build-debug/CMakeFiles/OpenGL_Learning.dir/src/SpotLight.cpp.o"
