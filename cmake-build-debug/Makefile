@@ -258,6 +258,33 @@ src/Mesh.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Mesh.cpp.s
 .PHONY : src/Mesh.cpp.s
 
+src/Model.o: src/Model.cpp.o
+
+.PHONY : src/Model.o
+
+# target to build an object file
+src/Model.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Model.cpp.o
+.PHONY : src/Model.cpp.o
+
+src/Model.i: src/Model.cpp.i
+
+.PHONY : src/Model.i
+
+# target to preprocess a source file
+src/Model.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Model.cpp.i
+.PHONY : src/Model.cpp.i
+
+src/Model.s: src/Model.cpp.s
+
+.PHONY : src/Model.s
+
+# target to generate assembly for a file
+src/Model.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGL_Learning.dir/build.make CMakeFiles/OpenGL_Learning.dir/src/Model.cpp.s
+.PHONY : src/Model.cpp.s
+
 src/PointLight.o: src/PointLight.cpp.o
 
 .PHONY : src/PointLight.o
@@ -390,6 +417,9 @@ help:
 	@echo "... src/Mesh.o"
 	@echo "... src/Mesh.i"
 	@echo "... src/Mesh.s"
+	@echo "... src/Model.o"
+	@echo "... src/Model.i"
+	@echo "... src/Model.s"
 	@echo "... src/PointLight.o"
 	@echo "... src/PointLight.i"
 	@echo "... src/PointLight.s"

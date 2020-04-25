@@ -2,6 +2,7 @@
 #include <glfw3.h>
 #include <cmath>
 #include "src/Mesh.h"
+#include "src/Model.h"
 #include "src/Shader.h"
 #include "src/Camera.h"
 #include "src/Material.h"
@@ -124,9 +125,8 @@ int main() {
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetCursorPosCallback(window, mouse_callback);
 
-    //创建网格
-    Mesh *cube = new Mesh(vertices);
-
+    //创建模型
+    Model *model = new Model("../model/nanosuit.obj");
     //创建着色器
     Shader *myShader = new Shader("../shader/vertexShader.vert", "../shader/fragmentShader.frag");
     //创建材质球
@@ -260,8 +260,7 @@ int main() {
             myMaterial->setUniform1f("material.shininess", myMaterial->shininess);
 
             //画
-            //glDrawArrays(GL_TRIANGLES, 0, 36);
-            cube->Draw(myMaterial);
+            model->Draw(myMaterial);
         }
 
         //刷新缓冲
