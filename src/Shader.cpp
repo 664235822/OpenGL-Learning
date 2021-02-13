@@ -19,8 +19,8 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
 
     vertexStream.open(vertexPath);
     fragmentStream.open(fragmentPath);
-    vertexStream.exceptions(ifstream::failbit || ifstream::badbit);
-    fragmentStream.exceptions(ifstream::failbit || ifstream::badbit);
+    vertexStream.exceptions();
+    fragmentStream.exceptions();
 
     try {
         if (!vertexStream.is_open() || !fragmentStream.is_open()) {

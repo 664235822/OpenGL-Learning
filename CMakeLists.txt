@@ -3,16 +3,16 @@ project(OpenGL_Learning)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(GLEW_H /usr/local/Cellar/glew/2.1.0_1/include/GL)
+set(GLEW_H /usr/local/Cellar/glew/2.2.0_1/include/GL)
 set(GLFW_H /usr/local/Cellar/glfw/3.3.2/include/GLFW)
 set(ASSIMP_H /usr/local/Cellar/assimp/5.0.1/include)
 set(GLAD_H /usr/local/include/glad)
 set(KH_H /usr/local/include/KHR)
-set(GLM_H /usr/local/include/glm/glm)
+set(GLM_H /usr/local/Cellar/glm/0.9.9.8/include/glm)
 include_directories(${GLEW_H} ${GLFW_H} ${ASSIMP_H} ${GLAD_H} ${KH_H} ${GLM_H} )
 
 # 添加目标链接
-set(GLEW_LINK /usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.dylib)
+set(GLEW_LINK /usr/local/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.dylib)
 set(GLFW_LINK /usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
 set(ASSIMP_LINK /usr/local/Cellar/assimp/5.0.1/lib/libassimp.5.dylib)
 link_libraries(${OPENGL} ${GLEW_LINK} ${GLFW_LINK} ${ASSIMP_LINK})

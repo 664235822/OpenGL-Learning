@@ -13,13 +13,6 @@ Mesh::Mesh(std::vector<Vertex> _vertices, std::vector<unsigned int> _indices, st
     setupMesh();
 }
 
-Mesh::Mesh(float vertices[]) {
-    this->vertices.resize(36);
-    memcpy(&(this->vertices[0]), vertices, 36 * 8 * sizeof(float));
-
-    setupMesh();
-}
-
 void Mesh::Draw(Material *material) {
     for (unsigned int i = 0; i < textures.size(); ++i) {
         if (textures[i].type == "texture_diffuse") {
