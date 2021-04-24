@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Volumes/项目/OpenGL-Learning/main.cpp
+/Volumes/资料/项目/OpenGL-Learning/main.cpp
 glew.h
 -
 glfw3.h
@@ -14,23 +14,23 @@ glfw3.h
 cmath
 -
 src/Mesh.h
-/Volumes/项目/OpenGL-Learning/src/Mesh.h
+/Volumes/资料/项目/OpenGL-Learning/src/Mesh.h
 src/Model.h
-/Volumes/项目/OpenGL-Learning/src/Model.h
+/Volumes/资料/项目/OpenGL-Learning/src/Model.h
 src/Shader.h
-/Volumes/项目/OpenGL-Learning/src/Shader.h
+/Volumes/资料/项目/OpenGL-Learning/src/Shader.h
 src/Camera.h
-/Volumes/项目/OpenGL-Learning/src/Camera.h
+/Volumes/资料/项目/OpenGL-Learning/src/Camera.h
 src/Material.h
-/Volumes/项目/OpenGL-Learning/src/Material.h
+/Volumes/资料/项目/OpenGL-Learning/src/Material.h
 src/DirectionLight.h
-/Volumes/项目/OpenGL-Learning/src/DirectionLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/DirectionLight.h
 src/PointLight.h
-/Volumes/项目/OpenGL-Learning/src/PointLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/PointLight.h
 src/SpotLight.h
-/Volumes/项目/OpenGL-Learning/src/SpotLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/SpotLight.h
 src/stb_image.h
-/Volumes/项目/OpenGL-Learning/src/stb_image.h
+/Volumes/资料/项目/OpenGL-Learning/src/stb_image.h
 glm.hpp
 -
 gtc/matrix_transform.hpp
@@ -38,23 +38,45 @@ gtc/matrix_transform.hpp
 gtc/type_ptr.hpp
 -
 
-/Volumes/项目/OpenGL-Learning/src/Camera.h
+/Volumes/资料/项目/OpenGL-Learning/src/Camera.cpp
+Camera.h
+/Volumes/资料/项目/OpenGL-Learning/src/Camera.h
+
+/Volumes/资料/项目/OpenGL-Learning/src/Camera.h
 glm.hpp
 -
 gtc/matrix_transform.hpp
 -
 
-/Volumes/项目/OpenGL-Learning/src/DirectionLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/DirectionLight.cpp
+DirectionLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/DirectionLight.h
+gtx/rotate_vector.hpp
+/Volumes/资料/项目/OpenGL-Learning/src/gtx/rotate_vector.hpp
+
+/Volumes/资料/项目/OpenGL-Learning/src/DirectionLight.h
 glm.hpp
 -
 
-/Volumes/项目/OpenGL-Learning/src/Material.h
+/Volumes/资料/项目/OpenGL-Learning/src/Material.cpp
+Material.h
+/Volumes/资料/项目/OpenGL-Learning/src/Material.h
+glew.h
+-
+
+/Volumes/资料/项目/OpenGL-Learning/src/Material.h
 Shader.h
-/Volumes/项目/OpenGL-Learning/src/Shader.h
+/Volumes/资料/项目/OpenGL-Learning/src/Shader.h
 glm.hpp
 -
 
-/Volumes/项目/OpenGL-Learning/src/Mesh.h
+/Volumes/资料/项目/OpenGL-Learning/src/Mesh.cpp
+Mesh.h
+/Volumes/资料/项目/OpenGL-Learning/src/Mesh.h
+glew.h
+/Volumes/资料/项目/OpenGL-Learning/src/glew.h
+
+/Volumes/资料/项目/OpenGL-Learning/src/Mesh.h
 glm.hpp
 -
 string
@@ -62,19 +84,19 @@ string
 vector
 -
 Material.h
-/Volumes/项目/OpenGL-Learning/src/Material.h
+/Volumes/资料/项目/OpenGL-Learning/src/Material.h
 
-/Volumes/项目/OpenGL-Learning/src/Model.cpp
+/Volumes/资料/项目/OpenGL-Learning/src/Model.cpp
 Model.h
-/Volumes/项目/OpenGL-Learning/src/Model.h
+/Volumes/资料/项目/OpenGL-Learning/src/Model.h
 
-/Volumes/项目/OpenGL-Learning/src/Model.h
+/Volumes/资料/项目/OpenGL-Learning/src/Model.h
 vector
 -
 string
 -
 Mesh.h
-/Volumes/项目/OpenGL-Learning/src/Mesh.h
+/Volumes/资料/项目/OpenGL-Learning/src/Mesh.h
 assimp/Importer.hpp
 -
 assimp/scene.h
@@ -82,21 +104,45 @@ assimp/scene.h
 assimp/postprocess.h
 -
 
-/Volumes/项目/OpenGL-Learning/src/PointLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/PointLight.cpp
+PointLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/PointLight.h
+
+/Volumes/资料/项目/OpenGL-Learning/src/PointLight.h
 glm.hpp
 -
 
-/Volumes/项目/OpenGL-Learning/src/Shader.h
+/Volumes/资料/项目/OpenGL-Learning/src/Shader.cpp
+Shader.h
+/Volumes/资料/项目/OpenGL-Learning/src/Shader.h
+iostream
+-
+fstream
+-
+sstream
+-
+glew.h
+-
+glfw3.h
+-
+
+/Volumes/资料/项目/OpenGL-Learning/src/Shader.h
 string
 -
 
-/Volumes/项目/OpenGL-Learning/src/SpotLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/SpotLight.cpp
+SpotLight.h
+/Volumes/资料/项目/OpenGL-Learning/src/SpotLight.h
+gtx/rotate_vector.hpp
+/Volumes/资料/项目/OpenGL-Learning/src/gtx/rotate_vector.hpp
+
+/Volumes/资料/项目/OpenGL-Learning/src/SpotLight.h
 glm.hpp
 -
 
-/Volumes/项目/OpenGL-Learning/src/stb_image.h
+/Volumes/资料/项目/OpenGL-Learning/src/stb_image.h
 stb_image.h
-/Volumes/项目/OpenGL-Learning/src/stb_image.h
+/Volumes/资料/项目/OpenGL-Learning/src/stb_image.h
 stdio.h
 -
 stdlib.h
@@ -392,7 +438,7 @@ OpenGL/glu.h
 GL/glu.h
 -
 
-/usr/local/Cellar/glfw/3.3.2/include/GLFW/glfw3.h
+/usr/local/Cellar/glfw/3.3.4/include/GLFW/glfw3.h
 stddef.h
 -
 stdint.h
@@ -425,15 +471,15 @@ OpenGL/gl3ext.h
 -
 GL/glcorearb.h
 -
-OpenGL/gl.h
--
 OpenGL/glu.h
+-
+GL/glu.h
+-
+OpenGL/gl.h
 -
 GL/gl.h
 -
 GL/glext.h
--
-GL/glu.h
 -
 
 /usr/local/Cellar/glm/0.9.9.8/include/glm/common.hpp
@@ -1569,6 +1615,30 @@ cstring
 /usr/local/Cellar/glm/0.9.9.8/include/glm/ext/vector_uint1.hpp
 ../ext/vector_uint1_sized.hpp
 /usr/local/Cellar/glm/0.9.9.8/include/glm/ext/vector_uint1_sized.hpp
+
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtx/rotate_vector.hpp
+../gtx/transform.hpp
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtx/transform.hpp
+../gtc/epsilon.hpp
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/epsilon.hpp
+../ext/vector_relational.hpp
+/usr/local/Cellar/glm/0.9.9.8/include/glm/ext/vector_relational.hpp
+../glm.hpp
+/usr/local/Cellar/glm/0.9.9.8/include/glm/glm.hpp
+rotate_vector.inl
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtx/rotate_vector.inl
+
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtx/rotate_vector.inl
+
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtx/transform.hpp
+../glm.hpp
+/usr/local/Cellar/glm/0.9.9.8/include/glm/glm.hpp
+../gtc/matrix_transform.hpp
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/matrix_transform.hpp
+transform.inl
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtx/transform.inl
+
+/usr/local/Cellar/glm/0.9.9.8/include/glm/gtx/transform.inl
 
 /usr/local/Cellar/glm/0.9.9.8/include/glm/integer.hpp
 detail/qualifier.hpp
